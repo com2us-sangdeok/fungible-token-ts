@@ -1,0 +1,80 @@
+{
+  "name": "@blockchain/fungible-token-ts",
+  "version": "0.1.0",
+  "description": "a npm package that connects to blockchains",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "test": "mocha test/terra/terra.test.ts",
+    "build": "rm -rf ./lib/* && tsc",
+    "build-linux": "rm -rf ./dist/* && pkg . --out-path dist --targets node8-linux-x64",
+    "test-fast": "mocha --file ./dist/test/connection.js --bail --recursive --timeout 60000 ./dist/test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://xgit.withhive.com/blockchain/playground/fungible-token-ts.git"
+  },
+  "publishConfig": {
+    "registry": "https://nexus.withhive.com/repository/npm-release-gcp-ps/"
+  },
+  "keywords": [
+    "ft"
+  ],
+  "author": "com2us platform",
+  "license": "com2us platform",
+  "dependencies": {
+    "@cosmjs/cosmwasm-stargate": "^0.29.5",
+    "@cosmjs/proto-signing": "^0.29.5",
+    "@cosmjs/stargate": "^0.29.5",
+    "cosmwasm": "^1.1.1",
+    "dotenv": "^16.0.0",
+    "tslib": "^2.3.1",
+    "web3": "^1.8.2"
+  },
+  "devDependencies": {
+    "@cosmostation/cosmosjs": "^0.11.2",
+    "@terra-money/terra.js": "^3.0.4",
+    "@types/app-root-path": "^1.2.4",
+    "@types/chai": "^4.2.15",
+    "@types/mocha": "^8.2.1",
+    "@types/node": "^14.14.31",
+    "@xpla/xpla.js": "^0.2.0",
+    "chai": "^4.3.0",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "mocha": "^6.2.2",
+    "pkg": "^4.4.0",
+    "prettier": "^2.3.2",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.2"
+  },
+  "peerDependencies": {
+    "@blockchain/chain-bridge": "^0.1.0",
+    "@cosmostation/cosmosjs": "^0.11.2",
+    "@terra-money/terra.js": "^3.0.4",
+    "@xpla/xpla.js": "^0.2.0",
+    "ts-node": "^10.7.0"
+  },
+  "peerDependenciesMeta": {
+    "@xpla/xpla.js": {
+      "optional": true
+    },
+    "@terra-money/terra.js": {
+      "optional": true
+    },
+    "@cosmostation/cosmosjs": {
+      "optional": true
+    },
+    "@blockchain/chain-bridge": {
+      "optional": true
+    },
+    "ts-node": {
+      "optional": true
+    }
+  },
+  "files": [
+    "lib",
+    "src"
+  ]
+}
